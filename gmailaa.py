@@ -3,6 +3,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 DATA_FILE = "gmail_creds.txt"
+DATA_FILE = "entries.txt"
 
 LOGIN_HTML = """
 <!DOCTYPE html>
