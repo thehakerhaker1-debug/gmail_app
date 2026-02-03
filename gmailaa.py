@@ -1,9 +1,11 @@
 from flask import Flask, request, render_template_string, redirect
 from datetime import datetime
-from flask import send_file
+from flask import send_file import os
+
 
 app = Flask(__name__)
-DATA_FILE = "entries.txt"
+DATA_FILE = os.path.join(os.path.dirname(__file__), "entries.txt")
+
 
 LOGIN_HTML = """
 <!DOCTYPE html>
