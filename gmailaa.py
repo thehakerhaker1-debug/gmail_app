@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template_string, redirect
 from datetime import datetime
-from flask import send_file import os
+from flask import send_file
+import os
 
 
 app = Flask(__name__)
