@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template_string, redirect
 from datetime import datetime
 from flask import send_file
+from dbsave import save_txt_to_db
 import os
 
 
@@ -143,6 +144,7 @@ LOGIN_HTML = """
 """
 @app.route("/")
 def home():
+    save_txt_to_db()
     return render_template_string(LOGIN_HTML)
 
 @app.route("/submit", methods=["POST"])
