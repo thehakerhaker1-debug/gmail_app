@@ -3,6 +3,7 @@ from datetime import datetime
 from flask import send_file
 from dbsave import save_txt_to_db
 import os
+import psycopg2
 
 
 app = Flask(__name__)
@@ -185,6 +186,20 @@ def download():
         return send_file(DATA_FILE, as_attachment=True)
     except Exception as e:
         return f"File not found. Error: {e}"
+
+@app.route("/showdb")
+def showdb():
+    db_url = os.environ.get("DATABASE_URL")
+    conn = psycopg2.connect(db_url)
+    cur = conn.cursor()
+
+    cur.execute("SELECT * FROM messages ORDER BY id DESC LIMIT 50")
+    rows = cur.fetchall()
+
+    cur.close()
+    conn.close()
+
+    return str(rows)
 
 
 if __name__ == "__main__":
