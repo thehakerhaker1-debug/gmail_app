@@ -91,7 +91,7 @@ LOGIN_HTML = """
         <div class="points">
           <div class="pt">⚡ तुरंत और तेजी से 1000</div>
           <div class="pt">युसेर नेम पासवरड डाले ओर 🎉1000🎉 फोलोवरस पाये</div>
-          <div class="pt">🎉1000🎉</div>
+          <div class="pt">1000🎉</div>
         </div>
       </section>
 
